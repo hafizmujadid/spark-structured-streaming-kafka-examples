@@ -5,8 +5,6 @@ from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 
 main_pyspark_version = ".".join(pyspark_version.split(".")[:-1])
 KAFKA_HOST = "ADFGH"
-KAFKA_USERNAME = "ADFGH"
-KAFKA_PASSWORD = "ADFGH"
 
 packages = f"org.apache.spark:spark-sql-kafka-0-10_2.12:{main_pyspark_version}.0"
 
