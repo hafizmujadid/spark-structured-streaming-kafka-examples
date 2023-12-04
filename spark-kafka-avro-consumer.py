@@ -4,6 +4,7 @@ from pyspark.sql.avro.functions import from_avro
 from pyspark.sql.functions import col, expr
 
 main_pyspark_version = ".".join(pyspark_version.split(".")[:-1])
+KAFKA_HOST = "ADFGH"
 
 packages = f"org.apache.spark:spark-sql-kafka-0-10_2.12:{main_pyspark_version}.0,org.apache.spark:spark-avro_2.12:{main_pyspark_version}.0"
 
@@ -26,7 +27,7 @@ def read_data(topic_name):
     return spark \
         .readStream \
         .format("kafka") \
-        .option("kafka.bootstrap.servers", "public-data-core-stg-cluster-data-core-stg-idealo.aivencloud.com:12342") \
+        .option("kafka.bootstrap.servers", KAFKA_HOST) \
         .option("subscribe", topic_name) \
         .option("startingOffsets", "earliest") \
         .option("failOnDataLoss", "false") \
